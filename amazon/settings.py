@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+import django_heroku
+import dj_database_url
 import os.path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -26,7 +28,7 @@ SECRET_KEY = 'django-insecure-y1fj%(%iwsc^8aqes521^6wl-8(!7e6!$m0abgl2(%3cn2aya-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -39,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'products.apps.ProductsConfig',
-    'omar.apps.OmarConfig',
+
     
   
 
@@ -133,7 +135,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
-
+STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
+STATICFILES_DIRS=(os.path.join(BASE_DIR,'static'),)
+django_heroku.settings(locals())
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
@@ -144,9 +148,7 @@ LOGIN_REDIRECT_URL="/index"
 CRISPY_TEMPLATE_PACK = 'uni_form'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
  
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = '587'
-EMAIL_HOST_USER = "omarmohamed25112001@gmail.com"
-EMAIL_HOST_PASSWORD = "omarsalemuu2511"
+
+
 EMAIL_USE_TLS = True
 
