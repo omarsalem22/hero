@@ -1,0 +1,44 @@
+{% extends 'books/base2.html' %} {% block tittle %}Details{% endblock %} 
+
+
+{%block mycontent%}
+
+<div class="" align="center"  style="margin-top: 40px ; " >
+    <div class="card" style="width: 35rem; display: inline-block">
+      <img
+        src="{{catecory.get_img_cat}}"
+        class="card-img-top"
+        alt="..."
+        width="250"
+        height="250"
+      />
+      <hr>
+      <div>
+    
+  
+      <div class="card-body">
+      
+       
+        <h5 class="card-title"> category name : {{catecory.name}}</h5>
+       
+   </h5>
+        
+       
+   {% if user.is_staff %}
+        <a class="btn btn-primary" href="{% url 'edietcat' catecory.id %}">Ediet</a>
+        
+  
+        
+        <br>
+        <br>
+  
+        <a  class="btn btn-danger" href="{% url 'delcat' catecory.id %}">Delete</a>
+        <br>
+        <br>
+        <a href="{%url 'createcat' %}" class="btn btn-primary">Create category</a> <br><br>
+        
+      
+
+    </div>  </div>
+    {% endif %}
+{%endblock%}

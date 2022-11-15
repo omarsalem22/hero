@@ -1,0 +1,50 @@
+{% load static %}
+
+<body>
+ 
+  <section class="swiper mySwiper">
+    
+    <div class="swiper-wrapper">
+
+      <div class="card swiper-slide">
+        <div class="card__image">
+      <img  id="cart-icon" src="{% static 'images/img/furniture/img1.jpg' %}">
+        </div>
+
+        <div class="card__content">
+          <span class="card__title">Web Designer</span>
+          <span class="card__name">Vanessa Martinez</span>
+          <p class="card__text">Lorem ipsum dolor sit, Sit veritatis labore provident non tempora odio est sunt, ipsum</p>
+          <a  href="{% url 'createbookstore'%}" class="card__btn"> View</a>
+        </div>
+      </div>
+
+آلاء, [9/13/2022 3:50 PM]
+[Forwarded from آلاء]
+</div> 
+    </div>
+    
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      effect: "coverflow",
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: "auto",
+      coverflowEffect: {
+        rotate: 0,
+        stretch: 0,
+        depth: 300,
+        modifier: 1,
+        slideShadows: false,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+      },
+    });
+  </script>
+
+</body>

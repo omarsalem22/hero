@@ -1,0 +1,71 @@
+{% extends 'books/base2.html' %} {% block tittle %}index page{% endblock %} 
+
+{%block mycontent%}
+
+<html lang="en">
+<head>
+  
+<body>
+  <div class="body">
+  </div>
+  <div class="overlay">
+    <header>
+        <div class="container">
+
+            <!-- Logo -->
+
+            <div class="row">
+                <div class="col-2 logo">
+                   
+       
+        </div>
+    </header>
+    <div class="content">
+        <div>
+            {% for message in messages %}
+            <div class="alert alert-danger d-flex align-items-center" role="alert">
+
+               <div>
+                 {{message}}
+               </div>
+            </div>
+
+
+          {%endfor%}
+          </div>
+    <!-- Example Code -->
+    <div class="form">
+
+      <form method="post">
+           {% csrf_token %}
+
+     
+          <h1>Register </h1>
+          <label  class="form-label" >User name</label>
+      <input type="text" class="input-text" name="username" >
+          <label  class="form-label" >Email</label>
+      <input type="email" class="input-text" name="email" >
+
+
+      <label  class="form-label">Password</label>
+      <input type="password" class="input-text" name="password">
+      <label  class="form-label"> Confirm Password</label>
+      <input type="password" class="input-text" name="password2">
+
+
+
+
+
+      <button style="margin-top: 20px" type="submit" class="kk">Sign up</button>
+          <hr>
+         <p>Do you have an account ? </p><a href="{%url 'login'%}">Log in</a>
+      </form>
+          </div>
+
+
+      </form>
+    </div>
+  </div>
+
+</body>
+{% endblock %}
