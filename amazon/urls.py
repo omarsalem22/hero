@@ -16,7 +16,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
-from unicodedata import name
+
 from django.contrib import admin
 from django.conf.urls.static import static
 from django.conf import settings
@@ -44,7 +44,7 @@ urlpatterns = [
       
     path("delete<int:pk>",login_required(booksDeleteview.as_view()),name="delbook"),
     path("regs",register,name='reges'),
-    path("",login,name="login"),
+    path("login",login,name="login"),
     
     path('showuser',showusername,name="users"),
     path('deluser/<int:pk>/',delete_user.as_view(),name='dele'),
@@ -74,6 +74,7 @@ urlpatterns = [
     path('deletebad<int:pk>',delete_bad.as_view(),name='delete_bad'),
     path('edietbad<int:pk>',Updatbaddsview.as_view(),name='Updatcat'),
     path('posts', listall, name="posts"),
+    path('api/' ,include('products.urls'))
 
     
 

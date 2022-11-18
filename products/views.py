@@ -1,5 +1,6 @@
 
-
+from rest_framework import generics
+from .serializers import Book_Serializers
 from django.contrib import messages
 import re
 from turtle import pos
@@ -9,6 +10,8 @@ from django.conf import settings
 
 from django.shortcuts import render ,redirect,get_object_or_404
 from django.urls import reverse 
+from rest_framework.decorators import api_view
+
 
 from products.forms import *
 from django.http import HttpResponse ,HttpResponseRedirect
@@ -459,7 +462,10 @@ def  listall(request):
 
 
 
-
+class Booklistapi(generics.ListAPIView):
+    model=book
+    queryset=book.objects.all()
+    serializer_class=Book_Serializers
 
 
        

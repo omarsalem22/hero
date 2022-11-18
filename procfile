@@ -1,1 +1,0 @@
-web gunicorn amazon.wsgi:application --log-file -
